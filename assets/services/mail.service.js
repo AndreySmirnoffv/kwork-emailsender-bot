@@ -1,58 +1,53 @@
-import nodemailer from 'nodemailer';
-import accounts from '../db/emails.json' with {type: "json"}
+import nodemailer from 'nodemailer'
+import * as fs from 'fs'
+import emails from '../db/emails.json' with {type: "json"}
+import senderAccounts from '../db/clients.json' with {type: "json"}
+const senderAccounts = require('./senders.json'); 
 
-let currentAccountIndex = 0; 
-let emailCount = 0;
+let emailCounter = 0;
+let senderIndex = 0;
 
-let transport = createTransport(accounts[currentAccountIndex]);
-
-function createTransport(account) {
-    console.log(account)
+function createTransporter(account) {
     return nodemailer.createTransport({
-        host: "smtp.timeweb.ru",
-        port: 2525,
-        secure: false,
+        service: 'gmail', // Замените на нужный сервис
         auth: {
             user: account.email,
             pass: account.password,
         },
-        tls: {
-            rejectUnauthorized: false
-        }
-    }, (error, info) => {
-        if (error) {
-            console.error("Ошибка отправки письма:", error);
-        } else {
-            console.log("Письмо отправлено:", info.response);
-        }
     });
 }
-export async function sendEmail(to, subject, text) {
+
+async function sendEmails() {
     try {
-        while (emailCount < 2000) {
-            transport = createTransport(accounts[currentAccountIndex]);
+        for (let i = 0; i < emails.length; i++) {
+            // Если отправили 2000 писем, переключаем отправителя
+            if (emailCounter % 2000 === 0 && emailCounter !== 0) {
+                senderIndex = (senderIndex + 1) % senderAccounts.length;
+                console.log(`Сменился отправитель: ${senderAccounts[senderIndex].email}`);
+            }
 
-            console.log(`Переключение на аккаунт: ${accounts[currentAccountIndex].email}`);
+            const transporter = createTransporter(senderAccounts[senderIndex]);
 
-            await transport.sendMail({
-                from: accounts[currentAccountIndex].email,
-                to,
-                subject,
-                text,
-            });
+            const mailOptions = {
+                from: senderAccounts[senderIndex].email,
+                to: emails[i].to,
+                subject: emails[i].subject,
+                text: emails[i].text,
+            };
 
-            emailCount++;
+            await transporter.sendMail(mailOptions);
+            console.log(`Письмо отправлено на ${emails[i].to}`);
 
-            console.log(`Письмо отправлено. Всего отправлено: ${emailCount} с аккаунта ${accounts[currentAccountIndex].email}`);
+            emailCounter++;
 
-            currentAccountIndex = (currentAccountIndex + 1) % accounts.length;
+            await new Promise((resolve) => setTimeout(resolve, 100));
         }
 
-        console.log('Отправлено 2000 писем. Процесс завершен.');
-
+        console.log('Все письма отправлены.');
     } catch (error) {
-        console.error("Ошибка при отправке письма:", error);
+        console.error('Ошибка при отправке письма:', error);
     }
 }
 
-sendEmail("smirnoffa675@gmail.com", "test", "test")
+// Запускаем отправку
+sendEmails();

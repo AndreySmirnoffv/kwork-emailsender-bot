@@ -1,10 +1,10 @@
 {
-  "name": "emailsender-bot",
+  "name": "scripts",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "admin.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
