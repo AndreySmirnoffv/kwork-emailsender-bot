@@ -1,0 +1,10 @@
+[
+    {
+        "command": "/start",
+        "description": "Начать рассылку"
+    },
+    {
+        "command": "/file",
+        "description": "Загрузить файл с имейлами"
+    }
+]

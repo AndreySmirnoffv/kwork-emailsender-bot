@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Центрирует по горизонтали */
+            align-items: center; /* Центрирует по вертикали */
+            font-family: Arial, sans-serif;
+            background-color: #ccccff;
+        }
+
+        .email-content {
+            width: 100%;
+            max-width: 600px; /* Ограничим ширину контента */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center; /* Текст внутри контента будет выровнен по центру */
+        }
+
+        .email-content__top-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .email-content__top-img img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: left;
+        }
+
+        .email-content__title {
+            font-family: "Kaushan Script", cursive;
+            margin-bottom: 30px;
+            font-size: 50px;
+            line-height: 1.3;
+            font-weight: 300;
+            transform: rotate(-5deg);
+            color: white;
+        }
+
+        .email-content__text {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            font-family: "Space Mono", Arial, serif;
+            font-weight: 400;
+            color: white;
+            max-width: 100%; 
+        }
+
+        .email-content__email {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            font-family: "Space Mono", Arial, serif;
+        }
+
+        .email-content__email a {
+            color: #FF0000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <table class="email-content">
+        <tr>
+            <td class="email-content__top-img">
+                <img src='https://po-moscow.ru/images/bot_pic/user-3.jpg' alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h1 class="email-content__title"> - PO-MOSCOW.RU - </h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="email-content__text">Загрузка данных...</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="email-content__email">Our email: <a href="mailto:info@po-moscow.ru">info@po-moscow.ru</a></p>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        async function loadContentFromJson() {
+            try {
+                const response = await fetch('./assets/db/text.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                const textElement = document.querySelector('.email-content__text'); 
+                
+                if (data.length > 0 && data[0].text) {
+                    textElement.textContent = data[0].text;
+                } else {
+                    textElement.textContent = 'Ошибка: данные не найдены.';
+                }
+            } catch (error) {
+                console.error('Ошибка при загрузке JSON:', error);
+                const textElement = document.querySelector('.email-content__text');
+                textElement.textContent = 'Ошибка загрузки данных.';
+            }
+        }
+
+        loadContentFromJson();
+    </script>
+</body>
+</html>
