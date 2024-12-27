@@ -5,21 +5,18 @@ import path from 'path';
 import { sendEmails } from "./assets/services/mail.service.js";
 import fetch from 'node-fetch';
 
-// Получаем путь к текущей директории
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 dotenv.config();
 
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 
-// Папка для сохранения файлов
 const UPLOAD_DIR = path.join(__dirname, 'assets', 'db');
 
 if (!fs.existsSync(UPLOAD_DIR)) {
     fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 }
 
-// Обработчик команд
 bot.on('message', async msg => {
     const chatId = msg.chat.id;
 
@@ -31,7 +28,6 @@ bot.on('message', async msg => {
     }
 });
 
-// Обработчик для документов
 bot.on('document', async (msg) => {
     const chatId = msg.chat.id;
 
@@ -44,19 +40,15 @@ bot.on('document', async (msg) => {
     }
 
     try {
-        // Получаем ссылку на файл
         const file = await bot.getFile(msg.document?.file_id || '');
         const fileUrl = `https://api.telegram.org/file/bot${bot.token}/${file.file_path}`;
 
-        // Путь для сохранения файла в ./assets/db/
         const filePath = path.join(UPLOAD_DIR, fileName);
 
-        // Скачиваем файл и сохраняем
         const response = await fetch(fileUrl);
         const fileStream = fs.createWriteStream(filePath);
         response.body?.pipe(fileStream);
 
-        // Ждём завершения записи
         fileStream.on('finish', () => {
             bot.sendMessage(chatId, `Файл "${fileName}" успешно сохранён.`);
         });
