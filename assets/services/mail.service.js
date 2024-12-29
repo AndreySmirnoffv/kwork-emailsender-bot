@@ -38,7 +38,7 @@ export async function sendEmails() {
             const mailOptions = {
                 from: senderAccounts[senderIndex].email,
                 to: emails[i].email,
-                subject: "custom",
+                subject: "По Москве",
                 html: inlineHtml,  // Используем преобразованный HTML
             }
 

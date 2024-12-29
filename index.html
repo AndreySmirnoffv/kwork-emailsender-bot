@@ -1,129 +1,316 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Template</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-        
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* Центрирует по горизонтали */
-            align-items: center; /* Центрирует по вертикали */
-            font-family: Arial, sans-serif;
-            background-color: #ccccff;
-        }
 
-        .email-content {
-            width: 100%;
-            max-width: 600px; /* Ограничим ширину контента */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center; /* Текст внутри контента будет выровнен по центру */
-        }
+<!DOCTYPE html><html>
+			<head>
+			<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<!--[if gte mso 9]>
+				<xml>
+					<o:OfficeDocumentSettings>
+						<o:AllowPNG/>
+						<o:PixelsPerInch>96</o:PixelsPerInch>
+					</o:OfficeDocumentSettings>
+				</xml>
+			<![endif]-->
+			
+			
+			
+		    <style>
+	
+				body {
+				  margin: 0;
+				  padding: 0;
+				}
+				
+				body, table, td, p, a, li {
+				  -webkit-text-size-adjust: 100%;
+				  -ms-text-size-adjust: 100%;
+				}
+				
+				a {
+				  word-wrap: break-word;
+				}
+				
+				table td {
+				  border-collapse: collapse;
+				}
+				
+				table {
+				  border-spacing: 0;
+				  border-collapse: collapse;
+				  mso-table-lspace: 0pt;
+				  mso-table-rspace: 0pt;
+				}
+				
+				table, td {
+				  mso-table-lspace: 0pt;
+				  mso-table-rspace: 0pt;
+				}
+				
+				.ReadMsgBody { 
+					width:100%; 
+					background-color: #34495E; 
+				}
+				
+				.ExternalClass { 
+					width: 100%; 
+					background-color: #34495E; 
+				}
+				
+				.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { 
+					line-height: 100%; 
+				}
+				
+				.ExternalClass * {
+					line-height: 100%;
+				}
+				
+				@media only screen and (max-width:640px) {
+				
+				  table.main,td.main { width:100% !important; min-width: 200px !important; }
+				  
+				  table.logo-img { width:100% !important; float: none; margin-bottom: 15px;}
+				  table.logo-img td { text-align: center !important;}
+				  
+				  table.logo-title { width:100% !important; float: none;}
+				  table.logo-title td { text-align: center; height: auto}
+				  table.logo-title h1 { font-size: 24px !important; text-align: center !important }
+				  table.logo-title h2 { font-size: 18px !important; text-align: center !important; }
+				  
+				  td.header-img img { width:100% !important; height:auto !important; }
+				
+				  td.block4 { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.block4 h1 { font-size: 24px !important; }
+				  
+				  td.block5 { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.block5 h2 { font-size: 24px !important; }
+				  
+				  td.block-text { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.block-text h2 { font-size: 20px !important; line-height: 170% !important; }
+				  td.block-text p { font-size: 16px !important; line-height: 170% !important; }
+				  td.block-text li { font-size: 16px !important; line-height: 170% !important; }
+				  
+				  td.two-columns { padding-left: 25px !important; padding-right: 25px !important; }
+				  table.text-column { width:100% !important; float: none; margin-bottom: 15px;}
+				
+				  td.image-caption { padding-left: 25px !important; padding-right: 25px !important; }
+				  table.image-caption-container { width:100% !important;}
+				  table.image-caption-column { width:100% !important; float: none;}
+				  td.image-caption-content img { width:100% !important; height:auto !important; }
+				  td.image-caption-content h2 { font-size: 20px !important; line-height: 170% !important; }
+				  td.image-caption-content p { font-size: 16px !important; line-height: 170% !important; }
+				  td.image-caption-top-gap { height: 15px !important; }
+				  td.image-caption-bottom-gap { height: 5px !important; }
+				  
+				  td.text { width:100% !important; }
+				  td.text p { font-size: 16px !important; line-height: 170% !important; }
+				  td.text h2 { font-size: 20px !important; line-height: 170% !important; }
+				  td.gap { display:none; }
+				  
+				  td.header { padding: 25px 25px 25px 25px !important; }
+				  td.header h1 { font-size: 24px !important; }
+				  td.header h2 { font-size: 20px !important; }
+				  
+				  td.footer { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.footer p { font-size: 13px !important; }
+				  table.footer-side { width: 100% !important; float: none !important; }
+				  td.footer-side { text-align: center !important; }
+				  td.social-links { text-align: center !important; padding-top: 25px !important; }
+				  table.footer-social-icons { float: none !important; margin: 0px auto !important; }
+				  td.social-icon-link { padding: 0px 5px !important; }
+				  
+				  td.image img { width:100% !important; height:auto !important; }
+				  td.image { padding-left: 25px !important; padding-right: 25px !important; height: auto !important; }
+				  
+				  td.image-full img { width:100% !important; height:auto !important; padding-top: 10px !important; padding-bottom: 10px !important}
+				  td.image-full { padding-left: 0px !important; padding-right: 0px !important; height: auto !important; }
+				  
+				  td.image-group img { width:100% !important; height:auto !important; margin: 15px 0px 15px 0px !important; }
+				  td.image-group { padding-left: 25px !important; padding-right: 25px !important; }
+				  
+				  table.image-in-table { width:100% !important; float: none; margin-bottom: 15px;}
+				  table.image-in-table td { width:100% !important;}
+				  table.image-in-table img { width:100% !important; height:auto !important; }
+				  
+				  
+				  td.image-text { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.image-text p { font-size: 16px !important; line-height: 170% !important; }
+				  
+				  td.divider-simple { padding-left: 25px !important; padding-right: 25px !important; }
+				  
+				  td.divider-full { padding-left: 0px !important; padding-right: 0px !important; }
+				  
+				  td.social { padding-left: 25px !important; padding-right: 25px !important; }
+				  
+				  table.preheader {width:100% !important; display:none; }
+				  td.preheader-gap { display:none; }
+				  td.preheader-link { display:none; }
+				  td.preheader-text { width:100%; }
+				  
+				  td.buttons { padding-left: 25px !important; padding-right: 25px !important; }
+				  
+				  table.button { width:95% !important; float: none; }
+				  
+				  td.content-buttons { padding-left: 25px !important; padding-right: 25px !important; }
+				  td.buttons-full-width { padding-left: 0px !important; padding-right: 0px !important; }
+				  td.buttons-full-width a { width:100% !important; padding-left: 0px !important; padding-right: 0px !important; text-align: center !important; }
+				  td.buttons-full-width span { width:100% !important; padding-left: 0px !important; padding-right: 0px !important; }
+				  
+				  table.content { width:100% !important; float: none !important;} 
+				  td.gallery-image { width:100% !important; padding: 0px !important;}
+				  
+				  table.social { width: 100%!important; text-align: center!important; }
+				  table.links { width: 100%!important; }
+				  table.links td { text-align: center!important; }
+				  table.footer-btn { text-align: center!important; width: 100%!important; margin-bottom: 10px; }
+				  table.footer-btn-wrap { margin-bottom: 0px; width: 100%!important; }
+				  
+				  td.head-social  { width: 100%!important; text-align: center!important; padding-top: 20px; }
+				  td.head-logo  { width: 100%!important; text-align: center!important; }
+				  tr.header-nav { display: none; }
+				  
+				  table.fullwidth { width: 100% !important; float: none !important; }
+				  table.align-center-all td { text-align: center !important; }
+				  td.align-center { text-align: center !important; }
+				  table.none,td.none { display: none !important; }
+				  table.display-inline,img.display-inline { display: inline-block !important; }
+				  td.autoh { height: auto !important; }
+				  td.h20 { height: 20px !important; }
+				  
+				  td.simple-image img {
+					  height: auto !important;
+					  max-width: 540px !important;
+					  width: 100% !important;
+				  }
+				  
+				  td.featured-image {
+					  padding-left: 0 !important;
+					  padding-right: 0 !important;
+				  }
+				  
+				  .mobileHide{
+					display: none!important;
+				  }
+					.mlContentBlock{
+						float: none!important;
+						width: 100%!important;
+					}
+					.mlContentOuter{
+						padding-bottom: 0px!important;
+						padding-left: 25px!important;
+						padding-right: 25px!important;
+						padding-top: 25px!important;
+					}
+					.alignCenter{
+						height: auto!important;
+						text-align: center!important
+					}
+					.marginBottom{
+						margin-bottom: 25px!important;
+					}
+				   
+				}
+			
+			</style>
+		<link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Cabin:400,400i,700,700i|Catamaran:400,400i,700,700i|Hind+Guntur:400,400i,700,700i|Karla:400,400i,700,700i|Lato:400,400i,700,700i|Lora:400,400i,700,700i|Merriweather:400,400i,700,700i|Merriweather+Sans:400,400i,700,700i|Noticia+Text:400,400i,700,700i|Open+Sans:400,400i,700,700i|Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i|Rubik:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i|Source+Serif+Pro:400,400i,700,700i|Work+Sans:400,400i,700,700i|Caveat:400,400i,700,700i|Archivo+Narrow:400,400i,700,700i|Dancing+Script:400,400i,700,700i|Josefin+Slab:400,400i,700,700i|Karla:400,400i,700,700i|Montserrat:400,400i,700,700i|Nunito:400,400i,700,700i|PT+Serif:400,400i,700,700i|Raleway:400,400i,700,700i|Space+Mono:400,400i,700,700i" rel="stylesheet">
+		</head>
+		<body>
+		<table class="preview" cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" bgcolor="#CCCCFF" style="">
+	<tr>
+		<td align="center" class="main"><table width="640" border="0" cellspacing="0" cellpadding="0" class="preheader" style="width: 640px;">
+		<tr>
+			<td align="left" class="preheader-text" width="420" style="padding: 15px 0px; font-family:Helvetica;font-size: 11px;color:#524e48;font-family:'Times New Roman', Times, serif;font-size:13px"><span id="thumb">
+				
+			</span></td>
+			<td class="preheader-gap" width="20">
+				
+			</td>
+      	</tr>
+      </table><table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-color:#ffffff;border-style:solid;" class="campaign">
+           <tr >
+           <td align="center" class="main"><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0" style="width: 640px;">
+           <tbody><tr>
+           <td style="min-width: 640px; width: 640px;" class="main" width="640"><table border="0" cellspacing="0" cellpadding="0" width="640" bgcolor="#CEEEDF" align="center"  style="width: 640px; background-color: #CEEEDF;" class="main"><tbody><tr><td align="center" width="640" class="header-img"><img id="img_" alt="" style="display:block; height: 25px; width: 640px;" height="25" src="https://poulitcam.ru/images/info/8407.png" width="640" border="0" class="" /></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="block-text" style="padding: 7px 50px 7px 50px;color:#524e48;font-family:'Times New Roman', Times, serif;line-height:22px;font-size:16px;"><p style="margin: 0px 0px 10px 0px; line-height: 22px; margin-bottom: 10px;"><p style="text-align: center; margin-bottom: 10px;">
+	       <span style="color:#FF6666;"><span style="font-size:36px;line-height:normal;"><span style="font-family:times new roman,times,serif;"><b>Здравствуйте, дорогие друзья!</b></span></span></span> <b><a target="_blank" style="color: #FDFDFD; font-size: 1px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="{{unsubscribe_link}}">Отписаться от приглашения</a></b></p></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="divider-simple" style="padding: 15px 50px 0px 50px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top-width:1px;border-color:#cccccc;border-top-style:solid;">
 
-        .email-content__top-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 100%;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
+           <tbody><tr>
+           <td width="100%" height="15px"></td>
+           </tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>
 
-        .email-content__top-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
-
-        .email-content__title {
-            font-family: "Kaushan Script", cursive;
-            margin-bottom: 30px;
-            font-size: 50px;
-            line-height: 1.3;
-            font-weight: 300;
-            transform: rotate(-5deg);
-            color: white;
-        }
-
-        .email-content__text {
-            font-size: 20px;
-            line-height: 1.5;
-            margin-bottom: 30px;
-            font-family: "Space Mono", Arial, serif;
-            font-weight: 400;
-            color: white;
-            max-width: 100%; 
-        }
-
-        .email-content__email {
-            font-size: 14px;
-            font-weight: 600;
-            color: white;
-            font-family: "Space Mono", Arial, serif;
-        }
-
-        .email-content__email a {
-            color: #FF0000;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <table class="email-content">
-        <tr>
-            <td class="email-content__top-img">
-                <img src='https://po-moscow.ru/images/bot_pic/user-3.jpg' alt="">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h1 class="email-content__title"> - PO-MOSCOW.RU - </h1>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p class="email-content__text">Загрузка данных...</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p class="email-content__email">Our email: <a href="mailto:info@po-moscow.ru">info@po-moscow.ru</a></p>
-            </td>
-        </tr>
-    </table>
-
-    <script>
-        async function loadContentFromJson() {
-            try {
-                const response = await fetch('./assets/db/text.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const data = await response.json();
-                const textElement = document.querySelector('.email-content__text'); 
-                
-                if (data.length > 0 && data[0].text) {
-                    textElement.textContent = data[0].text;
-                } else {
-                    textElement.textContent = 'Ошибка: данные не найдены.';
-                }
-            } catch (error) {
-                console.error('Ошибка при загрузке JSON:', error);
-                const textElement = document.querySelector('.email-content__text');
-                textElement.textContent = 'Ошибка загрузки данных.';
-            }
-        }
-
-        loadContentFromJson();
-    </script>
-</body>
-</html>
+                  <table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="block-text" style="padding: 7px 50px 7px 50px;color:#524e48;font-family:'Times New Roman', Times, serif;line-height:22px;font-size:16px;"><p style="margin: 0px 0px 10px 0px; line-height: 22px; margin-bottom: 10px;"><p style="text-align: center; margin-bottom: 10px;"><span style="font-size:18px;line-height:normal;"><span style="color:#003333;"><span style="font-family:times new roman,times,serif;"><i>Вас приветствует проект "По улицам и переулкам"!</i> </span></span></span></p></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="divider-simple" style="padding: 15px 50px 0px 50px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top-width:1px;border-color:#cccccc;border-top-style:solid;">
+                  <tbody><tr>
+                    <td width="100%" height="15px"></td>
+                  </tr>
+               </tbody></table></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="block-text" style="padding: 7px 50px 7px 50px;color:#000;font-family:'Times New Roman', Times, serif;line-height:22px;font-size:18px;"> <p style="color: #000; font-size: 20px; font-family:'Times New Roman', Times, serif;"><p style="margin: 0px 0px 10px 0px; line-height: 22px; margin-bottom: 10px; color: #000;"><p style=" margin-bottom: 10px; color: #000; font-size: 20px;"><ul><p>В июле отмечается много праздников, но мы выбрали самые забавные: - <b> 17 июля - День дарения подарков, День "Обнимите своих детей". </b> Желаем вам и вашим детям, ярких моментов, подарков без повода, всего вам доброго!!!<br /> <br /> 
+ 
+					Мы приглашаем вас узнавать интересное, новое, загадочное, получать хорошее настроение, массу позитива, и любоваться красотой нашего города! Ждем вас на наших экскурсиях, приходите!<br /> <br />
+                    <p style="color: #000; font-size: 20px; font-family:'Times New Roman', Times, serif;">
+					<u><i>Мы предлагаем вашему вниманию новинки и интересные маршруты:</i></u>
+                        <br /></p></td></tr></table></td><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="left" class="divider-simple" style="padding: 15px 50px 0px 50px;"><table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top-width:1px;border-color:#cccccc;border-top-style:solid "><p style="font-family:Arial, Helvetica Neue ,Helvetica,sans-serif;font-family-short:arial;font-size:20px;font-weight:normal;color:#FB515F;margin:0;"><b>Представляем:</b></p> <tr class="links">
+					
+                    <ul> <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/neopalimaya-obitel-bogoroditse-smolenskij-novodevichij-zhenskij-monastyr.html"><b>"Новодевичий монастырь - "Неопалимая обитель". Богородице-Смоленский Новодевичий женский монастырь"</b><i>ПЛАТНАЯ</i></a> - <i>18.07.2023 в 14:30 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/gum-grandioznyj-umopomrachitelnyj-manyashchij.html"><b>"ГУМ - Грандиозный, умопомрачительный, манящий…"</b><i>ПЛАТНАЯ</i></a> - <i>18.07.2023 в 18:30 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/shekhtel-zvezda-cerebryanogo-veka.html"><b>"Шехтель - звезда Cеребряного века"</b></a> - <i>19.07.2023 в 18:00 часов</i></li> <br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/puteshestvie-v-epokhu-romanovykh-ili-o-tekh-kto-zadaval-ton.html"><b>"Путешествие в эпоху Романовых, или о Тех, кто задавал тон... (с посещением музея "Наша Эпоха")"</b><i>ПЛАТНАЯ</i></a> - <i>20.07.2023 в 14:00 часов</i></li> <br />   
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/dunovenie-vechnosti-donskoj-monastyr-i-nekropol.html"><b>"Дуновение Вечности. Донской монастырь и некрополь"</b><i>ПЛАТНАЯ</i></a> - <i>20.07.2023 в 15:30 часов</i></li> <br />   
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/v-gosti-k-chajnym-korolyam.html"><b>"В гости к чайным королям"</b></a> - <i>20.07.2023 в 18:30 часов</i></li> <br />  
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/zateryannye-miry-mukhinoj-gory-progulka-po-plyushchikhe.html"><b>"Затерянные миры Мухиной горы. Прогулка по Плющихе"</b></a> - <i>21.07.2023 в 13:00 часов</i></li> <br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/svyatyni-taganskogo-kholma.html"><b>"Святыни Таганского холма"</b></a> - <i>21.07.2023 в 14:00 часов</i></li> <br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/pod-zashchitoj-nikolaya-chudotvortsa-ulitsa-nikolskaya.html"><b>"Под защитой Николая Чудотворца. Улица Никольская"</b></a> - <i>21.07.2023 в 15:00 часов</i></li> <br />
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/khamovniki-rajon-dvoryan-i-sovetskoj-intelligentsii.html"><b>"Хамовники. Район дворян и советской интеллигенции"</b></a> - <i>21.07.2023 в 16:30 часов</i></li> <br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/vdnkh-malenkaya-strana-vystavka-dostizhenij-narodnogo-khozyajstva.html"><b>"ВДНХ - маленькая страна. Выставка достижений народного хозяйства"</b><i>ПЛАТНАЯ</i></a> - <i>21.07.2023 в 17:00 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/stezhki-dorozhki-loskutnoj-rogozhki.html"><b>"Стежки-дорожки лоскутной Рогожки"</b></a> - <i>21.07.2023 в 17:30 часов</i></li> <br />   
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/krasa-zamoskvorechya-pyatnitskaya-ulitsa.html"><b>"Краса Замоскворечья. Пятницкая улица" </b></a> - <i>21.07.2023 в 19:00 часов</i></li> <br />   
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/troitse-lykovo-poslednee-selo-v-sostave-moskvy.html"><b>"Троице-Лыково - последнее село в составе Москвы"</b></a> - <i>22.07.2023 в 12:00 часов</i></li> <br />  
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/stopami-kuptsov-i-staroverov-alekseevskaya-sloboda.html"><b>"Стопами купцов и староверов. Алексеевская слобода"</b></a> - <i>22.07.2023 в 14:00 часов</i></li> <br />     
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/starye-sklepy-nemetskogo-nekropolya-vvedenskoe-kladbishche.html"><b>"Старые склепы Немецкого некрополя. Введенское кладбище"</b></a> - <i>22.07.2023 в 16:30 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/businy-dragotsennogo-ozherelya-pervoprestolnoj.html"><b>"Бусины драгоценного ожерелья Первопрестольной"</b><i>ПЛАТНАЯ</i></a> - <i>23.07.2023 в 12:00 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/ot-boyar-i-konyukhov-ot-uchenykh-i-arkheologov-do-deyatelej-kultury-afanasevskie-pereulki.html"><b>"От бояр и конюхов, от ученых и археологов до деятелей культуры. Афанасьевские переулки"</b></a> - <i>23.07.2023 в 15:00 часов</i></li><br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/kto-v-moskve-ne-byval-krasoty-ne-vidal.html"><b>"Кто в Москве не бывал, красоты не видал?! (с посещением смотровой площадки ЦДМ)"</b><i>ПЛАТНАЯ</i></a> - <i>23.07.2023 в 15:00 часов</i></li> <br />    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/shalom-ili-evrejskaya-moskva.html"><b>"Шалом или еврейская Москва"</b></a> - <i>23.07.2023 в 18:00 часов</i></li> <br/>  
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/ostozhenka-ulitsa-sozdavshaya-gorod.html"><b>"Остоженка - улица, создавшая город"</b></a> - <i>24.07.2023 в 16:00 часов</i></li> <br />  
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/za-kulisami-istoricheskikh-teatrov-moskvy.html"><b>"За кулисами исторических театров Москвы"</b></a> - <i>24.07.2023 в 18:30 часов</i></li> <br />  
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/moskovskij-oazis-prirodnyj-park-serebryanyj-bor-s-rechnoj-progulkoj-vokrug-ostrova.html"><b>"Московский оазис. Природный парк Серебряный Бор с речной прогулкой вокруг острова"</b><i>ПЛАТНАЯ</i></a> - <i>26.07.2023 в 12:00 часов</i></li> <br /> 
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/arkhitekturno-istoricheskie/krasivye-khozyajki-krasivykh-domov-osobnyak-leman-anny-tsentralnyj-dom-arkhitektora.html"><b>""Красивые хозяйки красивых домов". Особняк Леман Анны - Центральный Дом архитектора"</b><i>ПЛАТНАЯ</i></a> - <i>27.07.2023 в 11:30 часов</i></li> <br/>    
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/pod-pokrovom-petra.html"><b>"Под покровом Петра (с посещением территории и подъемом на колокольню Высоко-Петровского монастыря)"</b><i>ПЛАТНАЯ</i></a> - <i>29.07.2023 в 12:00 часов</i></li> <br />     
+                        
+                    <li align="left"> <a target="_blank" style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/istoricheskie/memento-mori-novodeviche-kladbishche.html"><b>"Memento Mori. Новодевичье кладбище"</b><i>ПЛАТНАЯ</i></a> - <i>29.07.2023 в 15:00 часов</i></li> <br />    
+    
+  
+                    </ul>   
+               
+                    <p style="color: #000; font-size: 20px; font-family:'Times New Roman', Times, serif;"><i>С расписанием всех экскурсий можно ознакомиться на сайте, нажав на кнопку:</i></p> <a target="_blank" href="https://poulitcam.ru/afisha.html">
+                    <style type="text/css"> 
+                    button[name="run_script"] { 
+                    border: none; border-radius: 7px; padding: 10px 25px; background: #FF6666; cursor: pointer; text-transform: uppercase; font-weight: bold; color: white; } button[name="run_script"]:hover {  background: #ff6600;} 
+                    </style>
+                    <button type="button" name="run_script">Афиша</button></a><br /> <br />
+                 
+                    <p style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif;">Желаем приятных прогулок и спасибо, что вы с нами!</p><p style="margin-bottom: 10px; color: #000; font-size: 18px; ">С наилучшими пожеланиями,<br /><i>команда проекта &quot;ПО УЛИЦАМ И ПЕРЕУЛКАМ&quot;</i></p>
+            
+                  </table></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;"><tbody><tr><td align="center" class="image" style="padding: 15px 50px 15px 50px;"><img alt="" id="img_35184" border="0" src="https://poulitcam.ru/images/info/logo.png" width="540" height="337" style="display: block;height: 150px; width: 300px;"></td></tr></tbody></table></td></tr></tbody></table><table align="center" width="640" class="main" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><table width="640" class="main" bgcolor="#fdfdfd" cellspacing="0" cellpadding="0" border="0" align="center" style="background: #fdfdfd; width: 640px;">
+                <tbody><tr><td class="esd-block-text es-p20t es-p15b es-p15r es-p15l" align="center"><p><span style="font-size:23px;"><span style="line-height: 150%;"></span></span></p><p><span style="font-size:23px;"><span style="line-height: 150%;">info@poulitcam.ru</span></span></p></td></tr><tr><td class="esd-block-social" align="center"><table class="es-table-not-adapt es-social" cellspacing="0" cellpadding="0"><tbody><tr><td class="es-p10r" valign="top" align="center"><a target="_blank" href="https://www.instagram.com/poulitcam/"><img title="instagram" src="https://poulitcam.ru/images/info/instagram.png" alt="instagram" width="32" height="32"></a></td> &nbsp;<td class="es-p10r" valign="top" align="center"><a target="_blank" href="https://www.facebook.com/groups/poulitcam/"><img title="Facebook" src="https://poulitcam.ru/images/info/facebook.png" alt="Facebook" width="32" height="32"></a></td><td class="es-p10r" valign="top" align="center"><a target="_blank" href="https://ok.ru/poulitcam"><img title="odnoklassniki" src="https://poulitcam.ru/images/info/odnoklassniki.png" alt="odnoklassniki" width="32" height="32"></a></td><td valign="top" align="center"></td><td valign="top" align="center"><a target="_blank" href="https://vk.com/poulitcam"><img title="Vkontakte" src="https://poulitcam.ru/images/info/vk.png" alt="Vk" width="32" height="32"></a></td></tr></tbody></table></td></tr><tr></tr></tbody><tbody><tr><tr>
+            
+               <td class="esd-block-text es-p10t es-p15b" esdev-links-color="#f4eade" align="center"><p style="color: #000; font-size: 18px; font-family:'Times New Roman', Times, serif;">По улицам и переулкам © 2023 |&nbsp; Хороших прогулок <br /><br /> <b><a target="_blank" style="color: #FC554C; font-size: 16px; font-family:'Times New Roman', Times, serif; text-decoration: none;" href="https://poulitcam.ru/priglashenie-na-progulki.html">Отписаться от приглашения</a></b></p><b/></td></tr><tbody><tr><td align="left" class="footer-side" style="padding: 0px 0px 0px 0px; vertical-align: middle; font-family:Arial;font-size: 11px;color:#524e48;font-family:'Times New Roman', Times, serif;font-size:13px;"><p style="margin: 0px 0px 5px 0px; padding: 0px; line-height: 150%;font-family:Arial;font-size: 11px;color:#524e48;font-family:'Times New Roman', Times, serif;font-size:16; font-weight:bold; margin-bottom: 10px;"></p><p style="margin: 0px 0px 5px 0px; padding: 0px; line-height: 150%;margin: 0px 0px 0px 0px;margin: 0px 0px 0px 0px; margin-bottom: 10px;"></p></td></tr></tbody></table><table width="260" class="footer-side" cellpadding="0" cellspacing="0" border="0" align="right" style="width: 260px;"><tbody><tr><td align="right" class="footer-side" style="padding: 0px 0px 0px 0px; font-family:Arial;font-size: 11px;color:#524e48;font-family:'Times New Roman', Times, serif;font-size:13px;"><p style="margin: 0px 0px 5px 0px; padding: 0px; line-height: 150%; margin-bottom: 10px;">Вы получили это письмо, потому что Вы являетесь нашим слушателем.</p></td></tr></tbody></table></td></tr></tbody></table></tr></tbody></table></td></tr></table></td></tr></table></body></html>
