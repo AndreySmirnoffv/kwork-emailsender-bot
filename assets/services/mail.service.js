@@ -15,8 +15,8 @@ function createTransporter(account) {
 
     return nodemailer.createTransport({
         host: 'smtp.timeweb.ru',
-        port: 465,
-        secure: true,
+        port: 2525,
+        secure: false,
         auth: { user: account.email, pass: account.password },
     });
 }
